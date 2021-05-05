@@ -7,6 +7,11 @@ const generateMarkdown = require("./utils/generateMarkdown");
 const questions = [
   {
     type: 'input',
+    name: 'fileName',
+    message: 'Enter README fileName: ',
+  },
+  {
+    type: 'input',
     name: 'title',
     message: 'Enter README title: ',
   },
@@ -64,7 +69,7 @@ const questions = [
 // TODO: Create a function to write README file
 function writeToFile(fileName, buffer) {
   // write body in here, function calls to other defined functions
-  fs.writeFile(fileName, buffer, ()=>{
+  fs.writeFile(fileName, buffer, (err)=>{
     if(err) return console.log(err);
     console.log('Buffer > fileName');
   });
@@ -77,7 +82,7 @@ function init() {
     // console.log(answers);
     console.log("Template:\n");
     const buffer = generateMarkdown(answers);
-    writeToFile("GENREADME.md", buffer);
+    // writeToFile("GENREADME.md", buffer);
     console.log(buffer);
   });
 }
