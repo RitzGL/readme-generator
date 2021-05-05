@@ -67,9 +67,10 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, buffer) {
+function writeToFile(data, buffer) {
   // write body in here, function calls to other defined functions
-  fs.writeFile(fileName, buffer, (err)=>{
+
+  fs.writeFile(`${data.fileName}`, buffer, (err)=>{
     if(err) return console.log(err);
     console.log('Buffer > fileName');
   });
@@ -82,7 +83,7 @@ function init() {
     // console.log(answers);
     console.log("Template:\n");
     const buffer = generateMarkdown(answers);
-    // writeToFile("GENREADME.md", buffer);
+    writeToFile(answers, buffer);
     console.log(buffer);
   });
 }
