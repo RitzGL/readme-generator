@@ -103,6 +103,7 @@ function generateMarkdown(data) {
   ## Table of Contents \n
   ${table}\n
   <a name="description"></a>\n
+  ## Description
   ${data.description}\n
   <a name="license"></a>\n
   ${licenseSection}\n
