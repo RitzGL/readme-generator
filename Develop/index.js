@@ -8,7 +8,7 @@ const questions = [
   {
     type: 'input',
     name: 'fileName',
-    message: 'Enter README fileName: ',
+    message: 'Enter README fileName (no extension): ',
   },
   {
     type: 'input',
@@ -70,7 +70,7 @@ const questions = [
 function writeToFile(data, buffer) {
   // write body in here, function calls to other defined functions
 
-  fs.writeFile(`${data.fileName}`, buffer, (err)=>{
+  fs.writeFile(`${data.fileName}.md`, buffer, (err)=>{
     if(err) return console.log(err);
     console.log('Buffer > fileName');
   });
@@ -79,8 +79,6 @@ function writeToFile(data, buffer) {
 // TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((answers) => {
-    // console.log('\nObject data received:');
-    // console.log(answers);
     console.log("Template:\n");
     const buffer = generateMarkdown(answers);
     writeToFile(answers, buffer);
